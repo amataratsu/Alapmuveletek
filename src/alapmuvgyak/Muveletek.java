@@ -1,6 +1,11 @@
 package alapmuvgyak;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 public class Muveletek extends javax.swing.JFrame {
@@ -270,8 +275,17 @@ public class Muveletek extends javax.swing.JFrame {
         fc.setCurrentDirectory(new File("."));
         fc.showSaveDialog(this);
         int valasztottGomb = fc.showSaveDialog(this);
-        if(valasztottGomb == JFileChooser.APPROVE_OPTION)
-            lblEredmeny.setText("Elérés: ");
+        if(valasztottGomb == JFileChooser.APPROVE_OPTION) {
+            File f = fc.getSelectedFile();
+            if (f.isDirectory()) {
+            lblEredmeny.setText("</html>Elérés: " + f.getPath() + "<br>Könyvtár: " + f.getName() + "</html>");              
+                try {
+                    Files.write(Paths.get(f.getPath() + "stat.txt"), "Statisztika:" .getBytes());
+                } catch (IOException ex) {
+                    Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
