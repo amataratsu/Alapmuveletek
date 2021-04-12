@@ -43,6 +43,7 @@ public class Muveletek extends javax.swing.JFrame {
         mnuFajlMent = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuFajlKilep = new javax.swing.JMenuItem();
+        mnuMentMaskep = new javax.swing.JCheckBoxMenuItem();
         mnuMuvelet = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,6 +204,10 @@ public class Muveletek extends javax.swing.JFrame {
         mnuFajlKilep.setText("Kilép");
         mnuFajl.add(mnuFajlKilep);
 
+        mnuMentMaskep.setSelected(true);
+        mnuMentMaskep.setText("Mentés Másként");
+        mnuFajl.add(mnuMentMaskep);
+
         jMenuBar1.add(mnuFajl);
 
         mnuMuvelet.setText("Műveletek");
@@ -314,6 +319,7 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuFajlKilep;
     private javax.swing.JMenuItem mnuFajlMegnyit;
     private javax.swing.JMenuItem mnuFajlMent;
+    private javax.swing.JCheckBoxMenuItem mnuMentMaskep;
     private javax.swing.JMenu mnuMuvelet;
     private javax.swing.JPanel pnlGyakorlas;
     private javax.swing.JTextField txtEredmeny;
