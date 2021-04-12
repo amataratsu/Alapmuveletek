@@ -1,5 +1,8 @@
 package alapmuvgyak;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 public class Muveletek extends javax.swing.JFrame {
 
     /**
@@ -43,7 +46,7 @@ public class Muveletek extends javax.swing.JFrame {
         mnuFajlMent = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuFajlKilep = new javax.swing.JMenuItem();
-        mnuMentMaskep = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnuMuvelet = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -204,9 +207,13 @@ public class Muveletek extends javax.swing.JFrame {
         mnuFajlKilep.setText("Kilép");
         mnuFajl.add(mnuFajlKilep);
 
-        mnuMentMaskep.setSelected(true);
-        mnuMentMaskep.setText("Mentés Másként");
-        mnuFajl.add(mnuMentMaskep);
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mnuFajl.add(jMenuItem1);
 
         jMenuBar1.add(mnuFajl);
 
@@ -257,6 +264,16 @@ public class Muveletek extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnMegoldasActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Fájl mentése");
+        fc.setCurrentDirectory(new File("."));
+        fc.showSaveDialog(this);
+        int valasztottGomb = fc.showSaveDialog(this);
+        if(valasztottGomb == JFileChooser.APPROVE_OPTION)
+            lblEredmeny.setText("Elérés: ");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -300,6 +317,7 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JButton btnMegoldas;
     private javax.swing.JButton btnUj;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblEredmeny;
@@ -319,7 +337,6 @@ public class Muveletek extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuFajlKilep;
     private javax.swing.JMenuItem mnuFajlMegnyit;
     private javax.swing.JMenuItem mnuFajlMent;
-    private javax.swing.JCheckBoxMenuItem mnuMentMaskep;
     private javax.swing.JMenu mnuMuvelet;
     private javax.swing.JPanel pnlGyakorlas;
     private javax.swing.JTextField txtEredmeny;
