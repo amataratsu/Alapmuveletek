@@ -1,16 +1,17 @@
 package alapmuvgyak;
 
 import java.io.File;
-import java.io.FileFilter;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
+
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.stage.FileChooser;
+
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,9 +28,9 @@ public class Muveletek extends javax.swing.JFrame {
     int osztasKerdes = 0;
     int osszesKerdes = 0;
     int szorzasKerdes = 0;
-    int osszesProba=0;
-    int osztasProba=0;
-    int szorzasProba=0;
+    int osszesProba = 0;
+    int osztasProba = 0;
+    int szorzasProba = 0;
 
     public Muveletek() {
         initComponents();
@@ -334,8 +335,7 @@ public class Muveletek extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEllenorzesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEllenorzesActionPerformed
-        
-        
+
         try {
             valasz = Integer.parseInt(txtEredmeny.getText());
         } catch (NumberFormatException ex) {
@@ -346,14 +346,13 @@ public class Muveletek extends javax.swing.JFrame {
         }
         if (mnuMuveletOsztas.isSelected()) {
             osztasProba++;
-            lblOsztasProba.setText("Osztás: "+osztasProba);
-        }
-        else if(mnuMuveletSzorzas.isSelected()){
+            lblOsztasProba.setText("Osztás: " + osztasProba);
+        } else if (mnuMuveletSzorzas.isSelected()) {
             szorzasProba++;
-            lblSzorzasProba.setText("Szorzás: "+szorzasProba);
+            lblSzorzasProba.setText("Szorzás: " + szorzasProba);
         }
         osszesProba++;
-        lbllblOsszProba.setText("Össz Probálkozások száma: "+osszesProba);
+        lbllblOsszProba.setText("Össz Probálkozások száma: " + osszesProba);
 
     }//GEN-LAST:event_btnEllenorzesActionPerformed
 
@@ -449,16 +448,38 @@ public class Muveletek extends javax.swing.JFrame {
     private void mnuFajlMegnyitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFajlMegnyitActionPerformed
         JFileChooser fc = new JFileChooser(new File("."));
         fc.setDialogTitle("Fájl megnyitása...");
+
         fc.setAcceptAllFileFilterUsed(true);
         int valasztottGomb = fc.showOpenDialog(this);
         if (valasztottGomb == JFileChooser.APPROVE_OPTION) {
 
             File f = fc.getSelectedFile();
+            String fn = f.getName();// + "." + kit[0];
+            mentettFajl = fn;
+            Path path = Paths.get(fn);
+            try {
+
+                byte[] bajtTomb = Files.readAllBytes(path); //betűnként ASCII
+                byte egyBajt = bajtTomb[0];
+                List<String> stringLista = Files.readAllLines(path);
+                String egySor=stringLista.get(1);
+                String[]darabolt=egySor.split(":");
+                //trim
+                
+//                for (int i = 0; i < darabolt.length; i++) {
+//                    System.out.print(darabolt[i]+" ");
+//                }
+                int temp = 7;
+
+            } catch (IOException ex) {
+                Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
+            }
             lblEredmeny.setText("<html>Elérés: " + f.getPath() + "<br>Fájl neve: " + f.getName() + "</html>");
 
         } else {
             JOptionPane.showMessageDialog(this, "Megnyitás megszakítva", "Megnyitás állapota:", JOptionPane.INFORMATION_MESSAGE);
         }
+
     }//GEN-LAST:event_mnuFajlMegnyitActionPerformed
 
     private void mnuMuveletOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMuveletOsztasActionPerformed
@@ -555,7 +576,7 @@ public class Muveletek extends javax.swing.JFrame {
 
     private String tartalomOsszeallitas() {
         String statisztika = "Statisztika: \n";
-        JLabel[] lblTomb = new JLabel[]{lblOsszKerdes,lblOsszeadProba, lblOsszeadProba, lblOsszeadKerdes, lblOsszeadProba, lblKivonasKerdes, lblKivonasProba, lblSzorzasKerdes, lblSzorzasProba, lblOsztasKerdes, lblOsztasProba};
+        JLabel[] lblTomb = new JLabel[]{lblOsszKerdes, lblOsszeadProba, lblOsszeadProba, lblOsszeadKerdes, lblOsszeadProba, lblKivonasKerdes, lblKivonasProba, lblSzorzasKerdes, lblSzorzasProba, lblOsztasKerdes, lblOsztasProba};
         final int probaMaxHossz = lblOsszeadProba.getText().length();
         final int kerdesMaxHossz = lblOsszeadKerdes.getText().length();
         final int HE = 3;
