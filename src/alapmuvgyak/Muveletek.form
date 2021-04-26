@@ -27,15 +27,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuFajlMentActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuFajlMentesMaskent">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuFajlMentMaskent">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ment&#xe9;s m&#xe1;sk&#xe9;nt..."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuFajlMentesMaskentActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuFajlMentMaskentActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="mnuFajlSep1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuFajlKilep">
               <Properties>
@@ -56,6 +56,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xd6;sszead&#xe1;s"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuMuveletOsszeadasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="mnuMuveletKivonas">
               <Properties>
@@ -102,7 +105,7 @@
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -119,23 +122,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel2" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jPanel2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="pnlGyakorlas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="174" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnUj" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnMegoldas" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,9 +151,9 @@
                   </Group>
                   <Component id="pnlGyakorlas" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -173,17 +173,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblValasz" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="lblFeladat" min="-2" pref="76" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtEredmeny" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnEllenorzes" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblValasz" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnEllenorzes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -240,9 +243,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Megold&#xe1;s"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMegoldasActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
@@ -257,35 +257,28 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblEredmeny" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblOsszeadKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblKivonasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblOsztasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblSzorzasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblOsszKerdes" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblKivonasProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSzorzasProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblOsszeadProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblOsztasProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbllblOsszProba" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                      <Component id="lblOsszeadKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszKerdes" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="lblKivonasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsztasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSzorzasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblOsszeadProba" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblKivonasProba" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSzorzasProba" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsztasProba" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszProba" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblEredmeny" min="-2" pref="156" max="-2" attributes="0"/>
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -295,28 +288,27 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblOsszKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbllblOsszProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszProba" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblOsszeadKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblKivonasKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblOsztasKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSzorzasKerdes" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lblOsszeadProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblKivonasProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblOsztasProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSzorzasProba" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblOsszeadKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszeadProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblKivonasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblKivonasProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblOsztasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsztasProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblSzorzasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSzorzasProba" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblEredmeny" min="-2" max="-2" attributes="0"/>
@@ -332,21 +324,24 @@
             <Property name="text" type="java.lang.String" value="&#xd6;ssz k&#xe9;rd&#xe9;sek sz&#xe1;ma: 0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbllblOsszProba">
+        <Component class="javax.swing.JLabel" name="lblOsszProba">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="&#xd6;ssz Prob&#xe1;lkoz&#xe1;sok sz&#xe1;ma: 1"/>
+            <Property name="text" type="java.lang.String" value="&#xd6;ssz Prob&#xe1;lkoz&#xe1;sok sz&#xe1;ma: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEredmeny">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eredm&#xe9;ny: 0 %"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[100, 14]"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblOsszeadKerdes">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="&#xd6;sszead&#xe1;s: 1"/>
+            <Property name="text" type="java.lang.String" value="&#xd6;sszead&#xe1;s: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblKivonasKerdes">
@@ -370,7 +365,7 @@
         <Component class="javax.swing.JLabel" name="lblOsszeadProba">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="&#xd6;sszead&#xe1;s: 1"/>
+            <Property name="text" type="java.lang.String" value="&#xd6;sszead&#xe1;s: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblKivonasProba">
